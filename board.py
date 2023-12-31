@@ -144,35 +144,7 @@ class board():
                     return True, answer
         
         return False, check_copy
-    """
-        #The next two lines with go through every square for row i column j
-        for i in range(9):
-            for j in range(9):
-                
-                #if the square row i column j is empty
-                if check[i][j] == None:
-                    
-                    #copy the board
-                    check_copy = list(check)
-
-                    #then check if any of the follow values can fill the square
-                    for k in range(1, 10):
-                       
-                       
-
-                       #replace the square in question with a value in the copy
-                       check_copy[i][j] = str(k)
-
-                       solution, answer = self.solve(check_copy)
-
-                       
-                       if solution == True:
-                           return solution, answer
-                       
-        return False, check
-        """
-
-                       
+               
                        
                        
     
