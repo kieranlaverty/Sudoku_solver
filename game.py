@@ -45,7 +45,7 @@ class board():
         startR = row - row % 3
         startC = col - col % 3
 
-        #ching if duplicats in the box
+        #checking if duplicats in the box
         for i in range(3):
             for j in range(3):
                 if board[i + startR][j+ startC] == num:
@@ -57,6 +57,8 @@ class board():
     
 
     def solve(self, board = None, row = 0, col = 0):
+        
+        #default to object board
         if board == None:
             board = self.game_board
 
@@ -64,7 +66,7 @@ class board():
         #col is 9 because on recursion the col is
         #incremented by 1
         if ( row == 8 and col == 9):
-            return True
+            return True, board
 
 
         #if last col reset to the next row
@@ -86,16 +88,31 @@ class board():
                 board[row][col] = n
 
                 #recursion
-                if self.solve(board, row, col + 1):
-                    print(board)
-                    return True
+                if self.solve(board, row, col + 1)[0]:
+                    return True, board
             
             #reset board
             board[row][col] = 0
+        
+        return False, "no solution"
  
     
     def print(self) -> None:
         for i in self.game_board:
             print(str(i))
         
-        pass
+        return
+    
+    def print_board(self, board = None) -> None:
+        if board == None:
+            board = self.game_board
+        
+        
+        row = ""
+        for i in board:
+            for j in i:
+                row += str(j) + " "
+            print(row)
+            row = ""
+        
+        return
