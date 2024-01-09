@@ -1,4 +1,7 @@
-
+""""
+Given a sudoku puzzle in the form of a string (space = "-", numbers, next row = "/")
+this program will return the solution to the puzzle
+"""
 
 import game as g
 
